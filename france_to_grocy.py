@@ -138,13 +138,13 @@ if __name__ == '__main__':
                 with open(f'{i}_country_{country_codes}_grocy.json', 'w') as f:
                      # Dumps the data
                     json.dump(data, f)
-                import csv
-                # Writing to CSV
-                with open(f'{i}_country_{country_codes}_grocy.csv', mode='w', newline='') as csvfile:
-                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                    writer.writeheader()  # Write header row
-                    writer.writerows(cars)  # Write data rows
-    
+
+                # Writing dictionary to CSV
+                with open(f'{i}_country_{country_codes}_grocy.csv', mode='w', newline='') as file:
+                    writer = csv.writer(file)
+                    writer.writerow(data.keys())  # Write header
+                    writer.writerow(data.values())  # Write values
+                    
                 wine_id_list.append(wine["id"])
         # Closes the file
         f.close()
