@@ -80,10 +80,12 @@ if __name__ == '__main__':
             #print (match)
             #sec = input('Let us wait for user input.')
             
-            print(f'WineID: {wine["id"]}')
-            wine_id_list.append(wine["id"])
+            
             # Gathers the wine-based data
             wine = match['vintage']['wine']
+
+            print(f'WineID: {wine["id"]}')
+            wine_id_list.append(wine["id"])
             
             # Popping redundant values
             if wine['style']:
