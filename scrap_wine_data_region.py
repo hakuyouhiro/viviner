@@ -83,9 +83,9 @@ if __name__ == '__main__':
             
             # Gathers the wine-based data
             wine = match['vintage']['wine']
-
-            print(f'WineID: {wine["id"]}')
             
+            print(f'WineID: {wine["id"]}')
+            wine_id = wine["id"];
             # Check if 30 exists in the list
             if  wine_id in wine_id_list:
                 print("         Wine already exist. Skipping")
@@ -117,7 +117,7 @@ if __name__ == '__main__':
                 with open(f'{i}_{output_file}', 'w') as f:
                     # Dumps the data
                     json.dump(data, f)
-                wine_id = wine["id"]
+                
                 wine_id_list.append(wine["id"])
         # Closes the file
         f.close()
