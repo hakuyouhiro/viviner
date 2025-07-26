@@ -85,6 +85,7 @@ if __name__ == '__main__':
             wine = match['vintage']['wine']
 
             print(f'WineID: {wine["id"]}')
+            wine_id = wine["id"]
             wine_id_list.append(wine["id"])
             
             # Popping redundant values
@@ -98,22 +99,27 @@ if __name__ == '__main__':
             # Appends current match to the dictionary
             data['wines'].append(wine)
 
-            print ("Drop full taste from export")
+            #print ("Drop full taste from export")
             ## Gathers the full-taste profile from current match
             #res = r.get(f'wines/{wine["id"]}/tastes')
             #tastes = res.json()
             #data['wines'][-1]['taste'] = tastes['tastes']
 
-            print ("Drop reviews  from export")
+            #print ("Drop reviews  from export")
             ## Gathers the reviews from current match
             #res = r.get(f'wines/{wine["id"]}/reviews')
             #reviews = res.json()
             #data['wines'][-1]['reviews'] = reviews['reviews']
 
-            # Opens the output .json file
-            with open(f'{i}_{output_file}', 'w') as f:
-                # Dumps the data
-                json.dump(data, f)
-        
+            wine_id_set = set(wine_id_list) # Convert list to set
+            if exists = wine_id in wine_id_set # Perform efficient membership test
+                print("         Wine already exist. Skipping")
+            else: 
+                print("         Wine not in list. Exporting")
+                # Opens the output .json file
+                with open(f'{i}_{output_file}', 'w') as f:
+                    # Dumps the data
+                    json.dump(data, f)
+            
         # Closes the file
         f.close()
