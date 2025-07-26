@@ -1,5 +1,7 @@
 https://www.vivino.com/wine-regions/bourgogne
 # France
+
+![Alt text](930028508ca5-french-wine-region-wine-folly[1].jpg "a title")
 ## The Northeast
 ### Champagne
 ### Alsace
@@ -14,14 +16,8 @@ https://www.vivino.com/wine-regions/bourgogne
 ### Languedoc-Roussillon 536
 ### The South-West Le Sud-Ouest
 ### Bordeaux 383
-
-## Western France
-### Cognac
-### Loire Valley 729
-
 #### Medoc = 417
 https://www.vivino.com/wine-regions/medoc
-
 * Haut-Médoc = 1602 wines = 427
 * Margaux =  = 384
 * Saint-Estèphe = 700 wines
@@ -38,6 +34,9 @@ https://www.vivino.com/wine-regions/medoc
 ** Saint Emilion Grand Cru = 827
 Lalande  De Pomerol = 386
 
+## Western France
+### Cognac
+### Loire Valley 729
 
 
 
