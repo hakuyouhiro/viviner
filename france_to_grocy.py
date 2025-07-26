@@ -77,15 +77,15 @@ if __name__ == '__main__':
     grocywine['wine_seo_name'] = ""
     grocywine['wine_type_id'] = ""
     grocywine['wine_vintage_type'] = ""
+    grocywine['winery_id'] = ""   
+    grocywine['winery_name'] = ""
+    grocywine['winery_seo_name'] = ""
+    grocywine['winery_status'] = ""
     grocywine['region_id'] = ""
     grocywine['region_name'] = ""
     grocywine['region_name_en'] = ""
     grocywine['region_seo_name'] = ""
     grocywine['region_country_code'] = ""
-    grocywine['winery_id'] = ""   
-    grocywine['winery_name'] = ""
-    grocywine['winery_seo_name'] = ""
-    grocywine['winery_status'] = ""
     with open(f'country_{country_codes}_grocy.csv', mode='a', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=grocywine.keys())
         writer.writeheader()  # Write header row
@@ -132,15 +132,15 @@ if __name__ == '__main__':
                 grocywine['wine_seo_name'] = wine["seo_name"]
                 grocywine['wine_type_id'] = wine["type_id"]
                 grocywine['wine_vintage_type'] = wine["vintage_type"]
+                grocywine['winery_id'] = wine["winery"]["id"]
+                grocywine['winery_name'] = wine["winery"]["name"]
+                grocywine['winery_seo_name'] = wine["winery"]["seo_name"]
+                grocywine['winery_status'] = wine["winery"]["status"]
                 grocywine['region_id'] = wine["region"]["id"]
                 grocywine['region_name'] = wine["region"]["name"]
                 grocywine['region_name_en'] = wine["region"]["name_en"]
                 grocywine['region_seo_name'] = wine["region"]["seo_name"]
                 grocywine['region_country_code'] = wine["region"]["country"]["code"]
-                grocywine['winery_id'] = wine["winery"]["id"]
-                grocywine['winery_name'] = wine["winery"]["name"]
-                grocywine['winery_seo_name'] = wine["winery"]["seo_name"]
-                grocywine['winery_status'] = wine["winery"]["status"]
                 # Appends current match to the dictionary
                 data['wines'].append(grocywine)
     
