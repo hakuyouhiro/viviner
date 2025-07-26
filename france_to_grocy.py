@@ -111,7 +111,7 @@ if __name__ == '__main__':
                 grocywine['wine_vintage_type'] = wine["vintage_type"]
                 grocywine['region_id'] = wine["region"]["id"]
                 grocywine['region_name'] = wine["region"]["name"]
-                grocywine['region_name_en'] = wine["region"]["_name_en"]
+                grocywine['region_name_en'] = wine["region"]["name_en"]
                 grocywine['region_seo_name'] = wine["region"]["seo_name"]
                 grocywine['region_country'] = wine["region"]["country"]
                 grocywine['winery_id'] = wine["winery"]["id"]
