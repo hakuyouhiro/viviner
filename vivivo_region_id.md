@@ -1,7 +1,25 @@
 https://www.vivino.com/wine-regions/bourgogne
 # France
-## Bordeaux 383
-### Medoc = 417
+## The Northeast
+### Champagne
+### Alsace
+### bourgogne 358
+
+## The South East
+### Rhone Valley
+### Savoie
+### Provence
+
+## Southwestern France
+### Languedoc-Roussillon 536
+### The South-West Le Sud-Ouest
+### Bordeaux 383
+
+## Western France
+### Cognac
+### Loire Valley 729
+
+#### Medoc = 417
 https://www.vivino.com/wine-regions/medoc
 
 * Haut-Médoc = 1602 wines = 427
@@ -19,3 +37,14 @@ https://www.vivino.com/wine-regions/medoc
 * Saint Emilion = 436
 ** Saint Emilion Grand Cru = 827
 Lalande  De Pomerol = 386
+
+
+
+
+
+
+
+
+
+
+
