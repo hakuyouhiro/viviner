@@ -76,7 +76,8 @@ if __name__ == '__main__':
         # Iterates over every match
         for match in matches:
             # Gathers the wine-based data
-            wine = match['vintage']['wine']
+            #wine = match['vintage']['wine']
+            wine = match['wine']
 
             # Popping redundant values
             if wine['style']:
@@ -89,15 +90,15 @@ if __name__ == '__main__':
             # Appends current match to the dictionary
             data['wines'].append(wine)
 
-            # Gathers the full-taste profile from current match
-            res = r.get(f'wines/{wine["id"]}/tastes')
-            tastes = res.json()
-            data['wines'][-1]['taste'] = tastes['tastes']
+            ## Gathers the full-taste profile from current match
+            #res = r.get(f'wines/{wine["id"]}/tastes')
+            #tastes = res.json()
+            #data['wines'][-1]['taste'] = tastes['tastes']
 
-            # Gathers the reviews from current match
-            res = r.get(f'wines/{wine["id"]}/reviews')
-            reviews = res.json()
-            data['wines'][-1]['reviews'] = reviews['reviews']
+            ## Gathers the reviews from current match
+            #res = r.get(f'wines/{wine["id"]}/reviews')
+            #reviews = res.json()
+            #data['wines'][-1]['reviews'] = reviews['reviews']
 
             # Opens the output .json file
             with open(f'{i}_{output_file}', 'w') as f:
