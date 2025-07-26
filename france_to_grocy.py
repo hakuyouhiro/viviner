@@ -96,7 +96,7 @@ if __name__ == '__main__':
         grocywine['winery_name'] = ""
         grocywine['winery_seo_name'] = ""
         grocywine['winery_status'] = ""
-        with open(f'country_{country_codes}_grocy.csv', mode='a', newline='') as file:
+        with open(f'country_{country_codes}_grocy.csv', mode='a', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=grocywine.keys())
             writer.writeheader()  # Write header row
 
@@ -161,7 +161,7 @@ if __name__ == '__main__':
                     json.dump(data, f)
 
                 # Writing dictionary to CSV
-                with open(f'country_{country_codes}_grocy.csv', mode='a', newline='') as file:
+                with open(f'country_{country_codes}_grocy.csv', mode='a', newline='', encoding='utf-8') as file:
                     writer = csv.DictWriter(file, fieldnames=grocywine.keys())
                     writer.writerow(grocywine)  # Write values
                     
