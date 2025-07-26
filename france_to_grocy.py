@@ -1,5 +1,6 @@
 import argparse
 import json
+import csv
 
 import utils.constants as c
 from utils.requester import Requester
@@ -97,10 +98,10 @@ if __name__ == '__main__':
             wine_id = wine["id"]
             # Check if wine_id exists in the wine_id
             if  wine["id"] in wine_id_list:
-                print(f'         {wine["id"]}_{wine["name"]}_{wine["region"]["name"]} already exist. Skipping')
+                print(f'         [SKIPPING]    {wine["id"]}_{wine["name"]}_{wine["region"]["name"]} already exist. Skipping')
                 wine_count_skipped = wine_count_skipped + 1
             else:
-                print(f'         {wine["id"]}_{wine["name"]}_{wine["region"]["name"]} not in list. Exporting')
+                print(f'         [ADDING]      {wine["id"]}_{wine["name"]}_{wine["region"]["name"]} not in list. Exporting')
                 wine_count_added = wine_count_added + 1
                 print(f'Scraping data from wine: {wine["id"]} {wine["name"]}')
                
@@ -113,7 +114,7 @@ if __name__ == '__main__':
                 grocywine['region_name'] = wine["region"]["name"]
                 grocywine['region_name_en'] = wine["region"]["name_en"]
                 grocywine['region_seo_name'] = wine["region"]["seo_name"]
-                grocywine['region_country'] = wine["region"]["country"]
+                grocywine['region_country_code'] = wine["region"]["country"]["code"]
                 grocywine['winery_id'] = wine["winery"]["id"]
                 grocywine['winery_name'] = wine["winery"]["name"]
                 grocywine['winery_seo_name'] = wine["winery"]["seo_name"]
@@ -133,11 +134,17 @@ if __name__ == '__main__':
                 #reviews = res.json()
                 #data['wines'][-1]['reviews'] = reviews['reviews']
                 # Opens the output .json file
-                #with open(f'{i}_regionid_{region_id}_{output_file}', 'w') as f:
-                with open(f'{i}_country_{country_codes}_{output_file}_grocy', 'w') as f:
+                # Writing to JSON
+                with open(f'{i}_country_{country_codes}_grocy.json', 'w') as f:
                      # Dumps the data
                     json.dump(data, f)
-                
+                import csv
+                # Writing to CSV
+                with open(f'{i}_country_{country_codes}_grocy.csv', mode='w', newline='') as csvfile:
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                    writer.writeheader()  # Write header row
+                    writer.writerows(cars)  # Write data rows
+    
                 wine_id_list.append(wine["id"])
         # Closes the file
         f.close()
