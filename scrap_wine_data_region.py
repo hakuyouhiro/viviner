@@ -76,9 +76,10 @@ if __name__ == '__main__':
         # Iterates over every match
         for match in matches:
             # Gathers the wine-based data
-            #wine = match['vintage']['wine']
-            wine = match['wine']
-
+            print (match)
+            sec = input('Let us wait for user input')
+            wine = match['vintage']['wine']
+            
             # Popping redundant values
             if wine['style']:
                 wine['style'].pop('country', None)
