@@ -5,7 +5,7 @@ https://www.vivino.com/wine-regions/bourgogne
 https://www.vivino.com/wine-regions/medoc
 
 * Haut-Médoc = 1602 wines = 427
-* Margaux = 964 wines
+* Margaux =  = 384
 * Saint-Estèphe = 700 wines
 * Pauillac = 593 wines
 * Saint-Julien = 397 wines
