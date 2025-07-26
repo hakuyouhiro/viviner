@@ -111,10 +111,11 @@ if __name__ == '__main__':
             #reviews = res.json()
             #data['wines'][-1]['reviews'] = reviews['reviews']
 
-            wine_id_set = set(wine_id_list) # Convert list to set
-            if exists = wine_id in wine_id_set # Perform efficient membership test
+            
+            # Check if 30 exists in the list
+            if  wine_id in wine_id_list:
                 print("         Wine already exist. Skipping")
-            else: 
+            else:
                 print("         Wine not in list. Exporting")
                 # Opens the output .json file
                 with open(f'{i}_{output_file}', 'w') as f:
