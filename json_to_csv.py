@@ -2,7 +2,7 @@ import json
 import csv
 i = 0
 while i < 86:
-  i += 1v
+  i += 1
   print(i)
   with open(f'{i}_country_fr_full.json') as jf:
       jd = json.load(jf)
