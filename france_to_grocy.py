@@ -96,11 +96,11 @@ if __name__ == '__main__':
 
             wine_id = wine["id"]
             # Check if wine_id exists in the wine_id
-            if  wine_id in wine_id_list:
-                print(f'         {wine_id}_{winery_id}_{winery_name} already exist. Skipping')
+            if  wine["id"] in wine_id_list:
+                print(f'         {wine["id"]}_{wine["name"]}_{wine["region"]["name"]} already exist. Skipping')
                 wine_count_skipped = wine_count_skipped + 1
             else:
-                print(f'         {wine_id}_{winery_id}_{winery_name} not in list. Exporting')
+                print(f'         {wine["id"]}_{wine["name"]}_{wine["region"]["name"]} not in list. Exporting')
                 wine_count_added = wine_count_added + 1
                 print(f'Scraping data from wine: {wine["id"]} {wine["name"]}')
                
