@@ -57,7 +57,8 @@ if __name__ == '__main__':
     n_matches = res.json()['explore_vintage']['records_matched']
 
     print(f'Number of matches: {n_matches}')
-
+    # Create a wine ID list to check if already inputed
+    wine_id_list = []
     # Iterates through the amount of possible pages
     for i in range(start_page, max(1, int(n_matches / c.RECORDS_PER_PAGE)) + 1):
         # Creates a dictionary to hold the data
@@ -75,9 +76,13 @@ if __name__ == '__main__':
 
         # Iterates over every match
         for match in matches:
+            #debug full list
+            #print (match)
+            #sec = input('Let us wait for user input.')
+            
+            print(f'WineID: {wine["id"]}')
+            wine_id_list.append(wine["id"])
             # Gathers the wine-based data
-            print (match)
-            sec = input('Let us wait for user input.')
             wine = match['vintage']['wine']
             
             # Popping redundant values
