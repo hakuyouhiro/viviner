@@ -68,6 +68,7 @@ if __name__ == '__main__':
     wine_id_list = []
     wine_count_added = 0
     wine_count_skipped = 0
+    
     # Iterates through the amount of possible pages
     for i in range(start_page, max(1, int(n_matches / c.RECORDS_PER_PAGE)) + 1):
         # Creates a dictionary to hold the data
@@ -78,6 +79,26 @@ if __name__ == '__main__':
         payload['page'] = i
 
         print(f'Page: {payload["page"]}')
+        # Prepare CSV FIle Header
+        # Writing dictionary to CSV
+        grocywine = {}
+        grocywine['wine_id'] = ""
+        grocywine['wine_name'] = ""
+        grocywine['wine_seo_name'] = ""
+        grocywine['wine_type_id'] = ""
+        grocywine['wine_vintage_type'] = ""
+        grocywine['region_id'] = ""
+        grocywine['region_name'] = ""
+        grocywine['region_name_en'] = ""
+        grocywine['region_seo_name'] = ""
+        grocywine['region_country_code'] = ""
+        grocywine['winery_id'] = ""   
+        grocywine['winery_name'] = ""
+        grocywine['winery_seo_name'] = ""
+        grocywine['winery_status'] = ""
+        with open(f'country_{country_codes}_grocy.csv', mode='a', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=grocywine.keys())
+            writer.writeheader()  # Write header row
 
         # Performs the request and scraps the URLs
         res = r.get('explore/explore', params=payload)
@@ -89,7 +110,7 @@ if __name__ == '__main__':
             #print (match)
             #sec = input('Let us wait for user input.')
             
-            grocywine = {}
+
             
             # Gathers the wine-based data
             wine = match['vintage']['wine']
@@ -140,9 +161,8 @@ if __name__ == '__main__':
                     json.dump(data, f)
 
                 # Writing dictionary to CSV
-                with open(f'{i}_country_{country_codes}_grocy.csv', mode='a', newline='') as file:
+                with open(f'country_{country_codes}_grocy.csv', mode='a', newline='') as file:
                     writer = csv.DictWriter(file, fieldnames=grocywine.keys())
-                    writer.writeheader()  # Write header row
                     writer.writerow(grocywine)  # Write values
                     
                 wine_id_list.append(wine["id"])
