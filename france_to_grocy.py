@@ -142,8 +142,8 @@ if __name__ == '__main__':
                 # Writing dictionary to CSV
                 with open(f'{i}_country_{country_codes}_grocy.csv', mode='w', newline='') as file:
                     writer = csv.writer(file)
-                    writer.writerow(data.keys())  # Write header
-                    writer.writerow(data.values())  # Write values
+                    writer.writerow(data['wines'].keys())  # Write header
+                    writer.writerow(data['wines'].values())  # Write values
                     
                 wine_id_list.append(wine["id"])
         # Closes the file
