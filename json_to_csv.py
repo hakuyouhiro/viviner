@@ -1,6 +1,5 @@
 import json
 import csv
-_country_fr_full.json
 
 while i < 86:
   print(i)
