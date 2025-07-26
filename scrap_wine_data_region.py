@@ -85,42 +85,39 @@ if __name__ == '__main__':
             wine = match['vintage']['wine']
 
             print(f'WineID: {wine["id"]}')
-            wine_id = wine["id"]
-            wine_id_list.append(wine["id"])
-            
-            # Popping redundant values
-            if wine['style']:
-                wine['style'].pop('country', None)
-                wine['style'].pop('region', None)
-                wine['style'].pop('grapes', None)
-
-            print(f'Scraping data from wine: {wine["name"]}')
-
-            # Appends current match to the dictionary
-            data['wines'].append(wine)
-
-            #print ("Drop full taste from export")
-            ## Gathers the full-taste profile from current match
-            #res = r.get(f'wines/{wine["id"]}/tastes')
-            #tastes = res.json()
-            #data['wines'][-1]['taste'] = tastes['tastes']
-
-            #print ("Drop reviews  from export")
-            ## Gathers the reviews from current match
-            #res = r.get(f'wines/{wine["id"]}/reviews')
-            #reviews = res.json()
-            #data['wines'][-1]['reviews'] = reviews['reviews']
-
             
             # Check if 30 exists in the list
             if  wine_id in wine_id_list:
                 print("         Wine already exist. Skipping")
             else:
                 print("         Wine not in list. Exporting")
+                # Popping redundant values
+                if wine['style']:
+                    wine['style'].pop('country', None)
+                    wine['style'].pop('region', None)
+                    wine['style'].pop('grapes', None)
+    
+                print(f'Scraping data from wine: {wine["name"]}')
+    
+                # Appends current match to the dictionary
+                data['wines'].append(wine)
+    
+                #print ("Drop full taste from export")
+                ## Gathers the full-taste profile from current match
+                #res = r.get(f'wines/{wine["id"]}/tastes')
+                #tastes = res.json()
+                #data['wines'][-1]['taste'] = tastes['tastes']
+    
+                #print ("Drop reviews  from export")
+                ## Gathers the reviews from current match
+                #res = r.get(f'wines/{wine["id"]}/reviews')
+                #reviews = res.json()
+                #data['wines'][-1]['reviews'] = reviews['reviews']
                 # Opens the output .json file
                 with open(f'{i}_{output_file}', 'w') as f:
                     # Dumps the data
                     json.dump(data, f)
-            
+                wine_id = wine["id"]
+                wine_id_list.append(wine["id"])
         # Closes the file
         f.close()
