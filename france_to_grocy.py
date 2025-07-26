@@ -140,7 +140,7 @@ if __name__ == '__main__':
                     json.dump(data, f)
 
                 # Writing dictionary to CSV
-                with open(f'{i}_country_{country_codes}_grocy.csv', mode='w', newline='') as file:
+                with open(f'{i}_country_{country_codes}_grocy.csv', mode='a', newline='') as file:
                     writer = csv.DictWriter(file, fieldnames=grocywine.keys())
                     writer.writeheader()  # Write header row
                     writer.writerow(grocywine)  # Write values
