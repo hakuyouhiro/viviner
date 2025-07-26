@@ -143,7 +143,7 @@ if __name__ == '__main__':
                 with open(f'{i}_country_{country_codes}_grocy.csv', mode='w', newline='') as file:
                     writer = csv.DictWriter(file, fieldnames=grocywine.keys())
                     writer.writeheader()  # Write header row
-                    writer.writerow(grocywine.values())  # Write values
+                    writer.writerow(grocywine)  # Write values
                     
                 wine_id_list.append(wine["id"])
         # Closes the file
