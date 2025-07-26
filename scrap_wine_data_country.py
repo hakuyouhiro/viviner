@@ -91,7 +91,7 @@ if __name__ == '__main__':
             print(f'WineID: {wine["id"]}')
             wine_id = wine["id"];
             # Check if wine_id exists in the wine_id
-            if  wine_id in wine_id:
+            if  wine_id in wine_id_list:
                 print("         Wine already exist. Skipping")
             else:
                 print("         Wine not in list. Exporting")
