@@ -90,11 +90,14 @@ if __name__ == '__main__':
             
             print(f'WineID: {wine["id"]}')
             wine_id = wine["id"];
+            winery_id = wine["winery"]["id"];
+            winery_name = wine["winery"]["name"];
+            
             # Check if wine_id exists in the wine_id
             if  wine_id in wine_id_list:
-                print("         Wine already exist. Skipping")
+                print("         {wine_id}_{winery_id}_{winery_name} already exist. Skipping")
             else:
-                print("         Wine not in list. Exporting")
+                print("         {wine_id}_{winery_id}_{winery_name} not in list. Exporting")
                 # Popping redundant values
                 if wine['style']:
                     wine['style'].pop('country', None)
@@ -119,7 +122,7 @@ if __name__ == '__main__':
                 #data['wines'][-1]['reviews'] = reviews['reviews']
                 # Opens the output .json file
                 #with open(f'{i}_regionid_{region_id}_{output_file}', 'w') as f:
-                with open(f'country_{country_codes}_{output_file}', 'w') as f:
+                with open(f'{i}_country_{country_codes}_{output_file}', 'w') as f:
                      # Dumps the data
                     json.dump(data, f)
                 
