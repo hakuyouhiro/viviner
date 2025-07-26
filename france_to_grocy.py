@@ -134,7 +134,7 @@ if __name__ == '__main__':
                 #data['wines'][-1]['reviews'] = reviews['reviews']
                 # Opens the output .json file
                 #with open(f'{i}_regionid_{region_id}_{output_file}', 'w') as f:
-                with open(f'{i}_country_{country_codes}_{output_file}', 'w') as f:
+                with open(f'{i}_country_{country_codes}_{output_file}_grocy', 'w') as f:
                      # Dumps the data
                     json.dump(data, f)
                 
