@@ -1,6 +1,6 @@
 https://www.vivino.com/wine-regions/bourgogne
 # France
-## Bordeaux
+## Bordeaux 383
 ### Medoc = 417
 https://www.vivino.com/wine-regions/medoc
 
