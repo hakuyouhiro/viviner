@@ -88,19 +88,12 @@ if __name__ == '__main__':
             #print (match)
             #sec = input('Let us wait for user input.')
             
+            grocywine = {}
             
             # Gathers the wine-based data
             wine = match['vintage']['wine']
             
-            print(f'WineID: {wine["id"]}')
-            wine_id = wine["id"]
-            wine_name = wine["name"]
-            wine_seo_name = wine["seo_name"]
-            wine_type_id = wine["type_id"]
-            wine_vintage_type = wine["vintage_type"]
-            winery_id = wine["winery"]["id"]
-            winery_name = wine["winery"]["name"]
-            winery_seo_name = wine["winery"]["seo_name"]
+
             
             # Check if wine_id exists in the wine_id
             if  wine_id in wine_id_list:
@@ -109,16 +102,24 @@ if __name__ == '__main__':
             else:
                 print(f'         {wine_id}_{winery_id}_{winery_name} not in list. Exporting')
                 wine_count_added = wine_count_added + 1
-                # Popping redundant values
-                if wine['style']:
-                    wine['style'].pop('country', None)
-                    wine['style'].pop('region', None)
-                    wine['style'].pop('grapes', None)
-    
-                print(f'Scraping data from wine: {wine["name"]}')
-    
+                print(f'Scraping data from wine: {wine["id"]} {wine["name"]}')
+               
+                grocywine['wine_id'] = wine["id"]
+                grocywine['wine_name'] = wine["name"]
+                grocywine['wine_seo_name'] = wine["seo_name"]
+                grocywine['wine_type_id'] = wine["type_id"]
+                grocywine['wine_vintage_type'] = wine["vintage_type"]
+                grocywine['region_id'] = wine["region"]["id"]
+                grocywine['region_name'] = wine["region"]["name"]
+                grocywine['region_name_en'] = wine["region"]["_name_en"]
+                grocywine['region_seo_name'] = wine["region"]["seo_name"]
+                grocywine['region_country'] = wine["region"]["country"]
+                grocywine['winery_id'] = wine["winery"]["id"]
+                grocywine['winery_name'] = wine["winery"]["name"]
+                grocywine['winery_seo_name'] = wine["winery"]["seo_name"]
+                grocywine['winery_status'] = wine["winery"]["status"]
                 # Appends current match to the dictionary
-                data['wines'].append(wine)
+                data['wines'].append(grocywine)
     
                 #print ("Drop full taste from export")
                 ## Gathers the full-taste profile from current match
