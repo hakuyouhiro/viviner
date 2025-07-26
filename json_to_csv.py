@@ -6,7 +6,7 @@ while i < 86:
   print(i)
   with open(f'{i}_country_fr_full.json') as jf:
       jd = json.load(jf)
-  Ed = d['wines']
+  Ed = jd['wines']
   df = open(f'{i}_country_fr_full.csv', 'w', newline='')
   cw = csv.writer(df)
 
