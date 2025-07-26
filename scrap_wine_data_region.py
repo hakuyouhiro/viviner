@@ -30,7 +30,10 @@ if __name__ == '__main__':
 
     # Instantiates a wrapper over the `requests` package
     r = Requester(c.BASE_URL)
-
+    
+    #set region id
+    region_id = 385;
+    
     # Defines the payload, i.e., filters to be used on the search
     payload = {
         #"country_codes[]": "br",
@@ -42,7 +45,7 @@ if __name__ == '__main__':
         # "order": "desc",
         # "price_range_min": 25,
         # "price_range_max": 100,
-         "region_ids[]": 383,
+         "region_ids[]": region_id,
         # "wine_style_ids[]": 98,
         # "wine_type_ids[]": 1,
         # "wine_type_ids[]": 2,
@@ -86,8 +89,8 @@ if __name__ == '__main__':
             
             print(f'WineID: {wine["id"]}')
             wine_id = wine["id"];
-            # Check if 30 exists in the list
-            if  wine_id in wine_id_list:
+            # Check if wine_id exists in the wine_id
+            if  wine_id in wine_id:
                 print("         Wine already exist. Skipping")
             else:
                 print("         Wine not in list. Exporting")
@@ -114,8 +117,9 @@ if __name__ == '__main__':
                 #reviews = res.json()
                 #data['wines'][-1]['reviews'] = reviews['reviews']
                 # Opens the output .json file
-                with open(f'{i}_{output_file}', 'w') as f:
-                    # Dumps the data
+                #with open(f'{i}_regionid_{region_id}_{output_file}', 'w') as f:
+                with open(f'regionid_{region_id}_{output_file}', 'w') as f:
+                     # Dumps the data
                     json.dump(data, f)
                 
                 wine_id_list.append(wine["id"])
