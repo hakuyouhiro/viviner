@@ -4,6 +4,8 @@ import json
 import utils.constants as c
 from utils.requester import Requester
 
+# This only get few fields to import into Grocy. 
+# Objective. Create grocy product id to be the same as vivino product id.
 
 def get_arguments():
     """Gets arguments from the command line.
@@ -91,9 +93,14 @@ if __name__ == '__main__':
             wine = match['vintage']['wine']
             
             print(f'WineID: {wine["id"]}')
-            wine_id = wine["id"];
-            winery_id = wine["winery"]["id"];
-            winery_name = wine["winery"]["name"];
+            wine_id = wine["id"]
+            wine_name = wine["name"]
+            wine_seo_name = wine["seo_name"]
+            wine_type_id = wine["type_id"]
+            wine_vintage_type = wine["vintage_type"]
+            winery_id = wine["winery"]["id"]
+            winery_name = wine["winery"]["name"]
+            winery_seo_name = wine["winery"]["seo_name"]
             
             # Check if wine_id exists in the wine_id
             if  wine_id in wine_id_list:
