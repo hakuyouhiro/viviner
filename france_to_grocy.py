@@ -94,7 +94,7 @@ if __name__ == '__main__':
             wine = match['vintage']['wine']
             
 
-            
+            wine_id = wine["id"]
             # Check if wine_id exists in the wine_id
             if  wine_id in wine_id_list:
                 print(f'         {wine_id}_{winery_id}_{winery_name} already exist. Skipping')
