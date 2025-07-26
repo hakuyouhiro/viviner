@@ -33,16 +33,16 @@ if __name__ == '__main__':
 
     # Defines the payload, i.e., filters to be used on the search
     payload = {
-        "country_codes[]": "br",
+        #"country_codes[]": "br",
         # "food_ids[]": 20,
         # "grape_ids[]": 3,
         # "grape_filter": "varietal",
-        "min_rating": 3.7,
+        #"min_rating": 3.7,
         # "order_by": "ratings_average",
         # "order": "desc",
         # "price_range_min": 25,
         # "price_range_max": 100,
-        # "region_ids[]": 383,
+         "region_ids[]": 383,
         # "wine_style_ids[]": 98,
         # "wine_type_ids[]": 1,
         # "wine_type_ids[]": 2,
@@ -77,7 +77,7 @@ if __name__ == '__main__':
         for match in matches:
             # Gathers the wine-based data
             print (match)
-            sec = input('Let us wait for user input')
+            sec = input('Let us wait for user input.')
             wine = match['vintage']['wine']
             
             # Popping redundant values
@@ -91,11 +91,13 @@ if __name__ == '__main__':
             # Appends current match to the dictionary
             data['wines'].append(wine)
 
+            print ("Drop full taste from export")
             ## Gathers the full-taste profile from current match
             #res = r.get(f'wines/{wine["id"]}/tastes')
             #tastes = res.json()
             #data['wines'][-1]['taste'] = tastes['tastes']
 
+            print ("Drop reviews  from export")
             ## Gathers the reviews from current match
             #res = r.get(f'wines/{wine["id"]}/reviews')
             #reviews = res.json()
